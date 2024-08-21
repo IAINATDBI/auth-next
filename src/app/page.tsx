@@ -21,14 +21,14 @@ export default function Home() {
           🔐 Auth
         </h1>
         <p className="text-lg">A simple authentication service</p>
-        <Link
+        {/* <Link
           href={sourceCode}
           target="_blank"
           rel="noreferrer noopener"
           className="text-xs text-right font-extrabold cursor-pointer drop-shadow-xl"
         >
             Source Code
-          </Link>
+          </Link> */}
         <div>
           <LoginButton mode="modal" asChild>
             <Button variant="secondary" size="lg">

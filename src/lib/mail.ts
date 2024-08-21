@@ -13,7 +13,7 @@ export async function sendVerificationEmail(
     from: 'onboarding@resend.dev',
     to: email,
     subject: 'Confirm your email',
-    html: `<p>Click <a href="${confirmLink}">here</a> to confirm email.</p>`
+    html: `<p>Please Click <a href="${confirmLink}">here</a> to confirm your ReJob email.</p>`
   })
 }
 
@@ -28,7 +28,7 @@ export async function sendPasswordResetEmail(
     from: 'onboarding@resend.dev',
     to: email,
     subject: 'Reset your password',
-    html: `<p>Click <a href="${resetLink}">here</a> to reset your password.</p>`
+    html: `<p>Click <a href="${resetLink}">here</a> to reset your ReJob password.</p>`
   })
 }
 
@@ -40,6 +40,6 @@ export async function sendTwoFactorTokenEmail(
     from: 'onboarding@resend.dev',
     to: email,
     subject: '2FA Code',
-    html: `<p>Your 2FA Code: ${token}</p>`
+    html: `<p>Here is your 2FA Code: ${token}</p>`
   })
 }

@@ -32,8 +32,8 @@ export async function login(
   const existingUser = await getUserByEmail(email)
 
   // Check if email really exists 
-  if (!existingUser || !existingUser.email) {
-    return { error: 'Email does not exists!' }
+  if (!existingUser || !existingUser.email || !existingUser.password) {
+    return { error: 'Email does not exists!' } //TODO: Change to check if updated later
   }
 
   // Check if user verified email

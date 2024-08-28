@@ -12,6 +12,7 @@ interface CardWrapperProps {
   backButtonLabel: string
   backButtonHref: string
   showSocial?: boolean
+  bgColor?: string // Add this line
 }
 
 export function CardWrapper({
@@ -20,9 +21,10 @@ export function CardWrapper({
   backButtonLabel,
   backButtonHref,
   showSocial,
+  bgColor = 'bg-white', // Add this line with a default value
 }: CardWrapperProps) {
   return (
-    <Card className="w-[400px] shadow-md">
+    <Card className={`w-[400px] shadow-md ${bgColor}`}> {/* Use the bgColor prop here */}
       <CardHeader>
         <Header label={headerLabel} />
       </CardHeader>

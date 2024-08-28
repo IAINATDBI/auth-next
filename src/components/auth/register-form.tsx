@@ -50,77 +50,80 @@ export function RegisterForm() {
   }
 
   return (
-    <CardWrapper 
-      headerLabel="Create an account"
-      backButtonLabel="Already have an account?"
-      backButtonHref="/auth/login"
-      showSocial 
-    >
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onRegisterSubmit)} className="space-y-6">
-          <div className="space-y-4">
-          <FormField 
-              control={form.control}
-              name="name"
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="text"
-                      placeholder="John Doe" 
-                      disabled={pending}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+    <div className="py-[200px]"> {/* Added this wrapper div with 200px vertical padding */}
+      <CardWrapper 
+        headerLabel="Create an account"
+        backButtonLabel="Already have an account?"
+        backButtonHref="/auth/login"
+        showSocial 
+        bgColor="bg-[#ff3e4c]"
+      >
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onRegisterSubmit)} className="space-y-6 bg-white p-4 rounded-md">
+            <div className="space-y-4">
             <FormField 
-              control={form.control}
-              name="email"
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="example@email.com" 
-                      disabled={pending}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField 
-              control={form.control}
-              name="password"
-              render={({field}) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="password"
-                      placeholder="*******"
-                      disabled={pending}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <FormError message={error} />
-          <FormSuccess message={success} />
-          <Button type="submit" disabled={pending} className="w-full">
-            Create an account
-          </Button>
-        </form>
-      </Form>
-    </CardWrapper>
+                control={form.control}
+                name="name"
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="John Doe" 
+                        disabled={pending}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField 
+                control={form.control}
+                name="email"
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="example@email.com" 
+                        disabled={pending}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField 
+                control={form.control}
+                name="password"
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="*******"
+                        disabled={pending}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <FormError message={error} />
+            <FormSuccess message={success} />
+            <Button type="submit" disabled={pending} className="w-full">
+              Create an account
+            </Button>
+          </form>
+        </Form>
+      </CardWrapper>
+    </div>
   )
 }

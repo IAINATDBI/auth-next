@@ -13,10 +13,10 @@ interface HeaderProps {
 export function Header({ label }: HeaderProps) {
   return (
     <div className="flex w-full flex-col gap-4 items-center justify-center">
-      <h1 className={cn('text-3xl font-semibold', font.className)}>
-        🔐 Auth
+      <h1 className={cn('text-3xl font-semibold text-white', font.className)}>
+        ReJob
       </h1>
-      <p className="text-muted-foreground">
+      <p className="text-white"> {/* Changed this line */}
         {label}
       </p>
     </div>

@@ -24,8 +24,8 @@ import Link from "next/link"
 
 export function LoginForm() {
   const searchParams = useSearchParams()
-  const callbackUrl = searchParams?.get('callbackUrl') ?? null
-  const urlError = searchParams?.get('error') === 'OAuthAccountNotLinked'
+  const callbackUrl = searchParams.get('callbackUrl') ?? null
+  const urlError = searchParams.get('error') === 'OAuthAccountNotLinked'
     ? 'Email already in use with different provider!'
     : ''
 

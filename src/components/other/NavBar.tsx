@@ -1,7 +1,20 @@
+'use client'
+
 import Link from "next/link";
 import Image from "next/image";
+import { logout } from "@/actions/logout";
+import { useRouter } from "next/navigation";
 
-const NavBar = () => {
+// Add isLoggedIn prop
+const NavBar = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.refresh();
+    window.location.href = '/auth/login';
+  };
+
   return (
     <nav className="flex flex-wrap justify-between items-center px-4 py-2 bg-white">
       <div className="flex items-center bg-[#ff3e4c] rounded p-1 text-white">
@@ -26,15 +39,26 @@ const NavBar = () => {
       </div>
       
       <div className="flex items-center space-x-4">
-        <Link href="/app/auth/login" className="font-bold text-[#ff3e4c] underline">
-          Sign in
-        </Link>
-        <button className="bg-[#ff3e4c] hover:bg-[#ff5766] text-white font-bold py-2 px-4 rounded-full">
-          Get Started
-        </button>
-        <button className="bg-[#ff3e4c] hover:bg-[#ff5766] text-white font-bold py-2 px-4 rounded-full hidden sm:block">
-          Try Rejob
-        </button>
+        {isLoggedIn ? (
+          <button 
+            onClick={handleLogout}
+            className="bg-[#ff3e4c] hover:bg-[#ff5766] text-white font-bold py-2 px-4 rounded-full"
+          >
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link href="/app/auth/login" className="font-bold text-[#ff3e4c] underline">
+              Sign in
+            </Link>
+            <button className="bg-[#ff3e4c] hover:bg-[#ff5766] text-white font-bold py-2 px-4 rounded-full">
+              Get Started
+            </button>
+            <button className="bg-[#ff3e4c] hover:bg-[#ff5766] text-white font-bold py-2 px-4 rounded-full hidden sm:block">
+              Try Rejob
+            </button>
+          </>
+        )}
       </div>
     </nav>
   );

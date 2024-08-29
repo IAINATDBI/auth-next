@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         <div className="flex justify-center w-full bg-white">
           <div className="w-full max-w-[1440px] px-4">
-            <NavBar />
+            <NavBar isLoggedIn={true} />
           </div>
         </div>
         <main className="flex-grow flex justify-center w-full">

@@ -7,6 +7,19 @@ const SuccessPage = () => {
   const router = useRouter()
 
   useEffect(() => {
+    const updatePurchaseStatus = async () => {
+      try {
+        const response = await fetch('/api/update-purchase', { method: 'POST' })
+        if (!response.ok) {
+          throw new Error('Failed to update purchase status')
+        }
+      } catch (error) {
+        console.error('Error updating purchase status:', error)
+      }
+    }
+
+    updatePurchaseStatus()
+
     const timer = setTimeout(() => {
       router.push('/rejob/dash')
     }, 5000)

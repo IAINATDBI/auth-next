@@ -23,6 +23,8 @@ model User {
   role                  UserRole               @default(USER)
   accounts              Account[]
   TwoFactorConfirmation TwoFactorConfirmation?
+  personalPlanPurchased Boolean                @default(false)
+  personalPlanPurchaseDate DateTime?
 
   @@map("users")
 }

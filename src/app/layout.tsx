@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
+import { SessionProvider } from "@/components/providers/SessionProvider";
 import NavBar from '@/components/other/NavBar';
 import Footer from '@/components/other/Footer';
 
@@ -32,21 +33,23 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <div className="flex justify-center w-full bg-white">
-          <div className="w-full max-w-[1440px] px-4">
-            <NavBar />
+        <SessionProvider>
+          <div className="flex justify-center w-full bg-white">
+            <div className="w-full max-w-[1440px] px-4">
+              <NavBar isLoggedIn={false} />
+            </div>
           </div>
-        </div>
-        <main className="flex-grow flex justify-center w-full">
-          <div className="w-full max-w-[1440px] px-4">
-            {children}
+          <main className="flex-grow flex justify-center w-full">
+            <div className="w-full max-w-[1440px] px-4">
+              {children}
+            </div>
+          </main>
+          <div className="flex justify-center w-full bg-[#ff3e4c]">
+            <div className="w-full max-w-[1440px] px-4">
+              <Footer />
+            </div>
           </div>
-        </main>
-        <div className="flex justify-center w-full bg-[#ff3e4c]">
-          <div className="w-full max-w-[1440px] px-4">
-            <Footer />
-          </div>
-        </div>
+        </SessionProvider>
       </body>
     </html>
   );

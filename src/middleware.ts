@@ -31,20 +31,24 @@ export default auth((req) => {
   console.log('Middleware: isLoggedIn', isLoggedIn)
 
   if (isApiAuthRoute || isApiRoute) {
+    console.log("Fired rule 1")
     return null // Allow all API requests to proceed without middleware interference
   }
 
   if (isAuthRoute) {
+    console.log("Fired rule 2")
     if (isLoggedIn) {
+      console.log("Fired rule 2.1")
       return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl))
     }
     return null
   }
 
   if (!isLoggedIn && (isProtectedRoute || !isPublicRoute)) {
+    console.log("Fired rule 3")
     return NextResponse.redirect(new URL('/auth/login', nextUrl))
   }
-
+  console.log("Fired rule 4")
   return null
 })
 
